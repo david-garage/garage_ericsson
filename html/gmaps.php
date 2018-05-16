@@ -72,7 +72,7 @@ for (var i = 0; i < planelatlong.length; i++) {
                 center: {lat: point[0], lng: point[1]},
                 radius:  30
               });
-  }
+   }
 
 
 
