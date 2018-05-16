@@ -28,36 +28,7 @@ ini_set('display_errors', 1);
     <script>
       var map;
       var ericsson  = {lat: 48.726772  , lng: 2.263562};
-function CenterControl(controlDiv, map) {
 
-        // Set CSS for the control border.
-        var controlUI = document.createElement('div');
-        controlUI.style.backgroundColor = '#fff';
-        controlUI.style.border = '2px solid #fff';
-        controlUI.style.borderRadius = '3px';
-        controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
-        controlUI.style.cursor = 'pointer';
-        controlUI.style.marginBottom = '500px';
-        controlUI.style.textAlign = 'center';
-        controlUI.title = 'Click to recenter the map';
-        controlDiv.appendChild(controlUI);
-
-        // Set CSS for the control interior.
-        var controlText = document.createElement('div');
-        controlText.style.color = 'rgb(25,25,25)';
-        controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
-        controlText.style.fontSize = '16px';
-        controlText.style.lineHeight = '50px';
-        controlText.style.paddingLeft = '5px';
-        controlText.style.paddingRight = '5px';
-        controlText.innerHTML = 'Center Map';
-        controlUI.appendChild(controlText);
-
-        // Setup the click event listeners: simply set the map to Chicago.
-        controlUI.addEventListener('click', function() {
-          map.setCenter(ericsson);
-        });
-}
 
 
 
@@ -69,11 +40,7 @@ function CenterControl(controlDiv, map) {
 	zoomControl : true,
 	scaleControl : true
         });
-var centerControlDiv = document.createElement('div');
-  var centerControl = new CenterControl(centerControlDiv, map);
 
-  centerControlDiv.index = 1;
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 
 for (var i = 0; i < planelatlong.length; i++) {
     var point = planelatlong[i];
@@ -84,7 +51,7 @@ for (var i = 0; i < planelatlong.length; i++) {
 	if(a<142)
 	{
 	var red = Math.floor(point[2]*2*255/283);
-	var green = 255; 
+	var green = 255;
 	var couleur = '#'+ red.toString(16)+'ff00' ;
 	}
 	else
@@ -93,8 +60,8 @@ for (var i = 0; i < planelatlong.length; i++) {
 	 var green =255-Math.floor( point[2] * (255 / 283));
 	var couleur =  '#ff'+green.toString() +'00';
 	}
-	
-	
+
+
     var cityCircle = new google.maps.Circle({
                 strokeColor: couleur,
                 strokeOpacity: 1,
@@ -108,9 +75,9 @@ for (var i = 0; i < planelatlong.length; i++) {
   }
 
 
-  
 
-    
+
+
 
              }
 
@@ -122,4 +89,3 @@ for (var i = 0; i < planelatlong.length; i++) {
     </script>
   </body>
 </html>
-
