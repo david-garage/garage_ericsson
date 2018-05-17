@@ -10,8 +10,8 @@
       /* Optional: Makes the sample page fill the window. */
       html, body {
         height: 100%;
-        margin: 100;
-        padding: 100;
+        margin: 100px;
+        padding: 100px;
       }
     </style>
 
