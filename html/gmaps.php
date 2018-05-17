@@ -16,7 +16,7 @@
         padding: 100px;
       }
     </style>
-
+<body>
   <div class="container">
    <div class="dropDownControl" id="ddControl" title="A custom drop down select with mixed elements" onclick="(document.getElementById('myddOptsDiv').style.display == 'block') ? document.getElementById('myddOptsDiv').style.display = 'none' : document.getElementById('myddOptsDiv').style.display = 'block';"">
     My Box
@@ -40,7 +40,7 @@
     </div>
    </div>
   </div>
-  <body>
+
     <div id="map"></div>
 
     <?php
