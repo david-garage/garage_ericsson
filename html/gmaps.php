@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="drodpdown.css">
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 50%;
-        margin: 100px;
-        padding: 100px;
+        height: 100%;
+
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
