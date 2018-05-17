@@ -14,7 +14,7 @@
         padding: 0;
       }
     </style>
-  </head>
+
   <div class="container">
    <div class="dropDownControl" id="ddControl" title="A custom drop down select with mixed elements" onclick="(document.getElementById('myddOptsDiv').style.display == 'block') ? document.getElementById('myddOptsDiv').style.display = 'none' : document.getElementById('myddOptsDiv').style.display = 'block';"">
     My Box
