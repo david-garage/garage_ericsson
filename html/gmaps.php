@@ -55,7 +55,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
  include "planelatlong.php"; ?>
 
-<script src ="../coord.js"></script>
+<script src ="coord.js"></script>
 
     <script>
       var map;
@@ -93,9 +93,6 @@ ini_set('display_errors', 1);
 
             }
 
-
-
-
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 16,
@@ -104,19 +101,6 @@ ini_set('display_errors', 1);
 	zoomControl : true,
 	scaleControl : true
         });
-        // Create the DIV to hold the control and call the CenterControl()
-                // constructor passing in this DIV.
-                var centerControlDiv = document.getElementById('container');
-                var map_obj = document.getElementById('map');
-				map_obj.appendChild('centerControlDiv');
-               // document.body.appendChild('centerControlDiv');
-                var centerControl = new CenterControl(centerControlDiv, map);
-
-                centerControlDiv.index = 1;
-                map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
-
-
-
 
 for (var i = 0; i < planelatlong.length; i++) {
     var point = planelatlong[i];
@@ -137,7 +121,6 @@ for (var i = 0; i < planelatlong.length; i++) {
 	var couleur =  '#ff'+green.toString() +'00';
 	}
 
-
     var cityCircle = new google.maps.Circle({
                 strokeColor: couleur,
                 strokeOpacity: 1,
@@ -146,7 +129,7 @@ for (var i = 0; i < planelatlong.length; i++) {
                 fillOpacity: 1,
                 map: map,
                 center: {lat: point[0], lng: point[1]},
-                radius:  30
+                radius:  20
               });
 }
 

@@ -10,8 +10,8 @@ if($db->connect_errno > 0){
 else
 //echo connecté;
 $sql = <<<SQL
-    SELECT `latitude` , `longitude` , `CO` , `CO2` , `NO2` ,  `AP`
-    FROM `data` 
+    SELECT `latitude` , `longitude` , `CO` , `CO2` , `NO2` ,  `AP` , `IdUser`
+    FROM `data`
 SQL;
 
 if(!$result = $db->query($sql)){
@@ -22,7 +22,7 @@ $planelatlong  = array();
 
 
 
-while($row = $result->fetch_assoc()){  
+while($row = $result->fetch_assoc()){
 	$planelatlong[] = $row;
 
 
@@ -31,7 +31,7 @@ echo "var planelatlong =[  <br />";
 
 for($i=0;$i<($result->num_rows);$i++)
 {
-	echo "[".$planelatlong[$i]['latitude'].",".$planelatlong[$i]['longitude'].",".$planelatlong[$i]['CO'].",".$planelatlong[$i]['CO2'].",".$planelatlong[$i]['NO2'].",".$planelatlong[$i]['AP'],"]";
+	echo "[".$planelatlong[$i]['longitude'].",".$planelatlong[$i]['longitude'].",".$planelatlong[$i]['CO'].",".$planelatlong[$i]['CO2'].",".$planelatlong[$i]['NO2'].",".$planelatlong[$i]['AP'],"]";
 if ($i <= ($result->num_rows-2) ) {
 echo ",<br />";
 }
@@ -47,15 +47,14 @@ $test = "var planelatlong = [";
 
 for($i=0;$i<($result->num_rows);$i++)
 {
-        $text =  "[".$planelatlong[$i]['latitude'].",".$planelatlong[$i]['longitude'].",".$planelatlong[$i]['CO'].",".$planelatlong[$i]['CO2'].",".$planelatlong[$i]['NO2'].",".$planelatlong[$i]['AP']."]";
+
+  $text =  "[".$planelatlong[$i]['longitude'].",".$planelatlong[$i]['longitude'].",".$planelatlong[$i]['CO'].",".$planelatlong[$i]['CO2'].",".$planelatlong[$i]['NO2'].",".$planelatlong[$i]['AP'].",".$planelatlong[$i]['IdUser'],"]";
 	$myfile = file_put_contents('coord.js', $text.PHP_EOL , FILE_APPEND | LOCK_EX);
 	if ($i <= ($result->num_rows-2) ) {
 	$text =  ",";
-	$myfile = file_put_contents('coord.js', $text.PHP_EOL , FILE_APPEND | LOCK_EX);	
+	$myfile = file_put_contents('coord.js', $text.PHP_EOL , FILE_APPEND | LOCK_EX);
 }
 }
 $text = "];";
-$myfile = file_put_contents('coord.js', $text.PHP_EOL , FILE_APPEND | LOCK_EX); 
+$myfile = file_put_contents('coord.js', $text.PHP_EOL , FILE_APPEND | LOCK_EX);
 ?>
-
-
